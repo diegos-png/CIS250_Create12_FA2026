@@ -12,25 +12,44 @@ db = client['school']
 collection = db['student']
 
 # Use find_1 to return one document
-result = collection.find_one()
+# result = collection.find_one()
 
 # Ugly print
 # print(result)
 
 # Pretty print
-# print(json.dumps(result, indent=4, default=str))
+# print(js{on.dumps(result, indent=4, default=str))
 
 # Use find() to display all documents
 # result = collection.find()
 
-# # Loop through result to print each doucment
+# # # Loop through result to print each doucment
 # for document in result:
 #     print(json.dumps(document, indent=4, default=str))
 
-# Use find() with criteria to search for documents
-result = collection.find({'gpa':3.5})
+# Use find() with criteria
+# criteria = collection.find({'gpa':3.5})
+
+# result = collection.find(criteria)
+
+# for document in result:
+#     print(json.dumps(document, indent=4, default=str))
+
+#Use comparison operators in a query
+# criteria = collection.find({'gpa': {'$gt': 3.4}})
+
+# result = collection.find(criteria)
+
+# for document in result:
+#     print(json.dumps(document, indent=4, default=str))
+
+# Search for a document using multiple criteria
+criteria = {
+    'gpa':3.5,
+    'last_name': 'Brown'
+}
+
+result = collection.find(criteria)
 
 for document in result:
     print(json.dumps(document, indent=4, default=str))
-
-    # Alternate way to do criteria
